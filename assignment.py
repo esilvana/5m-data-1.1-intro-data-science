@@ -6,16 +6,20 @@
 
 
 def fizz_buzz(number):
-    """Returns Fizz if number is divisible by 3, Buzz if divisible by 5, FizzBuzz if divisible by both 3 and 5.
-    If not divisible by either 3 or 5, returns the number itself.
-    >>> fizz_buzz(3)
-    'Fizz'
-    >>> fizz_buzz(5)
-    'Buzz'
-    >>> fizz_buzz(15)
-    'FizzBuzz'
-    """
-    return
+    if number % 3 == 0 and number % 5 == 0:
+        return 'FizzBuzz'
+    elif number % 3 == 0:
+        return 'Fizz'
+    elif number % 5 == 0:
+        return 'Buzz'
+    else:
+        return number
+    
+print (fizz_buzz(3))
+print (fizz_buzz(5))
+print (fizz_buzz(15))
+print (fizz_buzz(4))
+
 
 
 # Question 2
@@ -24,13 +28,14 @@ def fizz_buzz(number):
 
 
 def sum_of_squares(numbers):
-    """Returns the sum of the squares of all the numbers in a list.
-    >>> sum_of_squares([1, 2, 3])
-    14
-    >>> sum_of_squares([2, 4, 6])
-    56
-    """
-    return
+    total = 0
+    for n in numbers:
+        total += n ** 2
+    return total
+
+print(sum_of_squares([1, 2, 3]))
+print(sum_of_squares([2, 4, 6])) 
+
 
 
 # Question 3
@@ -39,28 +44,38 @@ def sum_of_squares(numbers):
 
 
 def count_vowels(string):
-    """Returns the number of vowels in a string.
-    >>> count_vowels("hello")
-    2
-    >>> count_vowels("aeiou")
-    5
-    """
-    return
+    
+    vowels = "aeiouAEIOU"
+    
+    count = 0
+    
+    for char in string:
+        if char in vowels: 
+            count += 1 
+            
+    return count
+
+print(count_vowels("hello"))
+print(count_vowels("aeiou"))
+print(count_vowels("xyz"))
 
 
 # Question 4
 
 # Write a function that counts the number of repeated characters in a string.
 
-
+from collections import Counter
 def count_repeats(string):
-    """Returns the number of repeated characters in a string.
-    >>> count_repeats("hello")
-    2
-    >>> count_repeats("aeiou")
-    0
-    """
-    return
+    
+    char_count = Counter(string)
+    
+    repeats = {char: count for char, count in char_count.items() if count > 1}
+    
+    return repeats
+
+result = count_repeats("hello")
+print(result) 
+
 
 
 if __name__ == "__main__":
